@@ -1,0 +1,30 @@
+[
+    {
+        "nome": "HTML 5",
+        "cover": "src/assets/images/html5.png"
+    },
+    {
+        "nome": "CSS 3",
+        "cover": "src/assets/images/css3.png"
+    },
+    {
+        "nome": "JAVASCRIPT",
+        "cover": "src/assets/images/javascript.png"
+    },
+    {
+        "nome": "ANGULAR",
+        "cover": "src/assets/images/angular.png"
+    },
+    {
+        "nome": "REACT",
+        "cover": "src/assets/images/react.png"
+    },
+    {
+        "nome": "SASS",
+        "cover": "src/assets/images/sass.png"
+    },
+    {
+        "nome": "Unity",
+        "cover": "src/assets/images/unity.png"
+    }
+]

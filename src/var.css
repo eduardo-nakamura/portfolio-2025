@@ -1,0 +1,20 @@
+:root{
+    /* Fonts */
+    --font-h-1:"Ultra", serif;
+    --font-p-1:"Slabo 27px", serif;
+    --font-h-2:"Arvo", serif;
+    --font-p-2:"Lato", serif;
+    --font-h-3:"Montserrat", serif;
+    --font-p-3:"Crimson Text", serif;
+    --font-h-4:"Oswald", serif;
+    --font-p-4:"Merriweather", serif;
+    --font-h-5:"Ubuntu", serif;
+    --font-p-5:"Open Sans", serif;
+    --font-h-6:"Yeseva One", serif;
+    --font-p-6:"Josefin Sans", serif;
+    /* Colors */    
+    --color-1: #023047; 
+    --color-2: #FC8500;
+    --color-3: #E6EAED;
+    --color-4: #8097A3;
+}
