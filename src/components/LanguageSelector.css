@@ -29,7 +29,10 @@
     border-radius: 4px;
     z-index: 1;
   }
-  
+  .darkmode .language-list{
+    background-color: var(--color-1-80);
+    border: 1px solid var(--color-1);
+  }
   .language-list li {
     display: flex;
     align-items: center;
@@ -40,7 +43,9 @@
   .language-list li:hover {
     background-color: #f0f0f0;
   }
-  
+  .darkmode .language-list li:hover {
+    background-color: var(--color-1-70);
+  }
   .dropdown-icon{
       margin-left: 10px;
   }

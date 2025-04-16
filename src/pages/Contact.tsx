@@ -1,7 +1,13 @@
-import React from 'react'
 
-export default function Contact() {
+import ContactComponent from '../components/ContactComponent'
+
+interface ContactProps {
+  darkMode?: boolean
+}
+export default function Contact(props: ContactProps) {
+
   return (
-    <div>Contact</div>
+    <ContactComponent darkMode={props.darkMode ?? false} >
+    </ContactComponent>
   )
 }

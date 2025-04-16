@@ -14,7 +14,14 @@
     --font-p-6:"Josefin Sans", serif;
     /* Colors */    
     --color-1: #023047; 
+    --color-1-90: #1c455a; 
+    --color-1-80: #35596c; 
+    --color-1-70: #4e6f7f; 
     --color-2: #FC8500;
     --color-3: #E6EAED;
     --color-4: #8097A3;
+    --color-5: #FFb703;
+    --color-6: #8ECAE6;
+    --color-7: #219EBC;
+    --color-8: #4E6E7E;
 }

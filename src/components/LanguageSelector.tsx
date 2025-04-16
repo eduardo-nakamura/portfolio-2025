@@ -36,7 +36,7 @@ export default function LanguageSelector() {
                     className="flag-icon"
                 />
                 {i18n.language === 'en' ? 'English' : 'Português'}
-                <FontAwesomeIcon icon={faChevronDown} />
+                <FontAwesomeIcon icon={faChevronDown} style={{marginLeft:'10px'}} />
             </div>
             {isOpen && (
                 <ul className="language-list">

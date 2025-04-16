@@ -1,47 +1,82 @@
-import React from 'react'
-import SimpleBtn from '../components/SimpleBtn';
-import { faDiceOne, faDiceTwo, faDiceThree, faDiceFour, faDiceFive, faDiceSix } from '@fortawesome/free-solid-svg-icons';
+import React, { useRef } from 'react';
 
-interface DiceProps {
-    count: number;
-    setCount: React.Dispatch<React.SetStateAction<number>>; // Add the setCount prop
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+    faDiceOne,
+    faDiceTwo,
+    faDiceThree,
+    faDiceFour,
+    faDiceFive,
+    faDiceSix,
+} from '@fortawesome/free-solid-svg-icons';
+import soundFile from '../assets/Audio/dieThrow1.ogg'; // Import the sound file
+import { useAppContext } from './AppContext';
+import { useTranslation } from 'react-i18next';
+
+interface DiceProps{
+    icon: boolean;
 }
 
 export default function Dice(props: DiceProps) {
+  const { t } = useTranslation();
+
+    const audioRef = useRef(new Audio(soundFile));
+    const { count, setCount } = useAppContext();
+    const { darkMode } = useAppContext();
+    const playSound = () => {
+        if (audioRef.current) {
+            audioRef.current.pause();
+            audioRef.current.currentTime = 0;
+            audioRef.current.play().catch(error => {
+                console.error("Error playing sound:", error);
+            });
+        }
+    };
     function changeStyle() {
+
         let novoNumero;
         do {
-            novoNumero = Math.floor(Math.random() * 6); // Gera um número entre 0 e 5
-        } while (novoNumero === props.count); // Evita repetição do número anterior
-        props.setCount(novoNumero);
+            novoNumero = Math.floor(Math.random() * 6);
+        } while (novoNumero === count);
+        setCount(novoNumero); playSound();
     }
+    const handleButtonClick = (event: React.MouseEvent) => {
+        event.stopPropagation(); // Impedir que o evento de clique chegue ao Container
+        changeStyle();
+    };
     function changeIcon() {
-        switch (props.count) {
+        switch (count) {
             case 0:
-                return faDiceOne
-                break;
+                return faDiceOne;
             case 1:
-                return faDiceTwo
-                break;
+                return faDiceTwo;
             case 2:
-                return faDiceThree
-                break;
+                return faDiceThree;
             case 3:
-                return faDiceFour
-                break;
+                return faDiceFour;
             case 4:
-                return faDiceFive
-                break;
+                return faDiceFive;
             case 5:
-                return faDiceSix
-                break;
+                return faDiceSix;
             default:
-                break;
+                return faDiceOne;
         }
     }
+
     return (
         <div>
-            <SimpleBtn textbtn={''} onClick={changeStyle} icon={changeIcon()} />
+            <button 
+                onClick={handleButtonClick} 
+                className={props.icon ? '' : 'simpleBtn'} 
+                style={{ 
+                    backgroundColor: darkMode ? 'var(--color-4)' : 'var(--color-2)', 
+                    color: 'white',
+                    border: darkMode ? 'var(--color-4)' : 'white'
+                }}>
+                {props.icon ? <FontAwesomeIcon icon={changeIcon()} size='3x' color={'white'} /> : t('roll_dice')}    
+               {/* {t('home_text')} */}
+            </button>
         </div>
-    )
+    );
 }
+

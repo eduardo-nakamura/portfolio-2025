@@ -9,7 +9,7 @@ interface BtnProps {
     border?: string;
     bgcolor?: string;
     textcolor?: string;
-    textbtn: string;
+    textbtn?: string;
     onClick?: () => void; 
     icon?: IconDefinition; 
 
@@ -18,13 +18,13 @@ interface BtnProps {
 export default function SimpleBtn(props: BtnProps) {
     const { t } = useTranslation();
 
-    const border = props.border || '#023047'; // Valor padrão se não fornecido
-    const bgcolor = props.bgcolor || 'white'; // Valor padrão se não fornecido
-    const textcolor = props.textcolor || '#023047'; // Valor padrão se não fornecido
+    const border = props.border || '#023047'; 
+    const bgcolor = props.bgcolor || 'white'; 
+    const textcolor = props.textcolor || '#023047'; 
 
     return (
         <button onClick={props.onClick}  className='simpleBtn' style={{ borderColor: border, backgroundColor: bgcolor, color: textcolor }}>
-            {props.textbtn &&t(props.textbtn)} 
+            {props.textbtn && t(props.textbtn)} 
             {props.icon && <FontAwesomeIcon icon={props.icon} size="2x" />}
         </button>
     )

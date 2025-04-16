@@ -1,5 +1,6 @@
-import React from 'react'
 import { useTranslation } from 'react-i18next';
+import ContactComponent from '../components/ContactComponent';
+
 
 export default function About() {
   const { t } = useTranslation();
@@ -69,6 +70,54 @@ export default function About() {
           </div>
         </div>
       </div>
+
+      <div className="containerSection">
+        <div className='item-33'>
+          <h3>{t('education')}</h3>
+        </div>
+        <div className='item-66'>
+          <div className="containerXP">
+            <div className="containerXP__3col mb16">
+              <p><strong>{t('education1_school')}</strong><br /><strong>{t('education1_course')}</strong></p>
+              <p className="font__color4">{t('education1_date')}</p>
+            </div>
+            <div className="containerXP__3col mb16">
+              <p><strong>{t('education2_school')}</strong><br /><strong>{t('education2_course')}</strong></p>
+              <p className="font__color4">{t('education2_date')}</p>
+            </div>
+            <div className="containerXP__3col mb16">
+              <p><strong>{t('education3_school')}</strong><br /><strong>{t('education3_course')}</strong></p>
+              <p className="font__color4">{t('education3_date')}</p>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+
+      <div className="containerSection">
+        <div className="item-33">
+          <h3>{t('skills')}</h3>
+        </div>
+        <div className="item-66">
+          <ul className='skillsAbout'>
+            <li><p>HTML 5</p></li>
+            <li><p>CSS 3</p></li>
+            <li><p>JAVASCRIPT</p></li>
+            <li><p>ANGULAR</p></li>
+            <li><p>REACT</p></li>
+            <li><p>SASS</p></li>
+            <li><p>BOOTSTRAP</p></li>
+            <li><p>GITHUB</p></li>
+            <li><p>PORTUGUÊS (NATIVO)</p></li>
+            <li><p>INGLÊS</p></li>
+          </ul>
+        </div>
+      </div>
+
+      <ContactComponent />
     </div>
   )
 }
+

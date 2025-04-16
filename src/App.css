@@ -1,10 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Slabo+27px&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Ultra&family=Yeseva+One&display=swap');
 
+body {
+  background-color: white;
+  color: var(--color-1)
+}
+
 .containerSection {
   padding: 48px 24px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+}
+
+.containerAll {
+  margin-top: 88px;
 }
 
 .containerSection h3 {
@@ -96,16 +105,30 @@ p.containerGallery__subtitle {
   display: inline-block;
 }
 
+ul.skillsAbout {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+}
+
+.skillsAbout li {
+  width: 100%;
+  padding: 5px 0;
+}
+
 /* Experience */
 .containerXP {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin-bottom: 40px;
 }
-.containerXP .mb16{
-  margin-bottom: 16px;
+
+.mb16 {
+  margin-bottom: 0;
 }
-.containerXP p{
+
+.containerXP p {
   font-size: 14px;
   font-weight: 400;
   line-height: 145%;
@@ -160,6 +183,8 @@ p.containerGallery__subtitle {
   font-family: var(--font-h-5);
 }
 
+.fonts__1 textarea,
+.fonts__1 input,
 .fonts__1 select,
 .fonts__1 p,
 .fonts__1 a,
@@ -167,6 +192,8 @@ p.containerGallery__subtitle {
   font-family: var(--font-p-1);
 }
 
+.fonts__2 textarea,
+.fonts__2 input,
 .fonts__2 select,
 .fonts__2 p,
 .fonts__2 a,
@@ -174,6 +201,8 @@ p.containerGallery__subtitle {
   font-family: var(--font-p-2);
 }
 
+.fonts__3 textarea,
+.fonts__3 input,
 .fonts__3 select,
 .fonts__3 p,
 .fonts__3 a,
@@ -181,6 +210,8 @@ p.containerGallery__subtitle {
   font-family: var(--font-p-3);
 }
 
+.fonts__4 textarea,
+.fonts__4 input,
 .fonts__4 select,
 .fonts__4 p,
 .fonts__4 a,
@@ -188,6 +219,8 @@ p.containerGallery__subtitle {
   font-family: var(--font-p-4);
 }
 
+.fonts__5 textarea,
+.fonts__5 input,
 .fonts__5 select,
 .fonts__5 p,
 .fonts__5 a,
@@ -195,34 +228,67 @@ p.containerGallery__subtitle {
   font-family: var(--font-p-5);
 }
 
-.fonts__6 h1,
-h2,
-h3,
-h4,
-h5 {
+.fonts__0 h1,
+.fonts__0 h2,
+.fonts__0 h3,
+.fonts__0 h4,
+.fonts__0 h5 {
   font-family: var(--font-h-6);
 }
 
-.fonts__6 select,
-.fonts__6 p,
-.fonts__6 a,
-.fonts__6 button {
+.fonts__0 textarea,
+.fonts__0 input,
+.fonts__0 select,
+.fonts__0 p,
+.fonts__0 a,
+.fonts__0 button {
   font-family: var(--font-p-6);
 }
 
-p.font__color1{
+p.font__color1 {
   color: var(--color-1);
 }
-p.font__color2{
+
+p.font__color2 {
   color: var(--color-2);
 }
-p.font__color3{
+
+p.font__color3 {
   color: var(--color-3);
 }
-p.font__color4{
+
+p.font__color4 {
   color: var(--color-4);
 }
 
+
+/* DArk mode */
+body .darkmode {
+  background-color: var(--color-1);
+  color: white;
+}
+
+.darkmode p.containerGallery__title {
+
+  color: var(--color-3);
+}
+
+.darkmode .containerXP p {
+  color: var(--color-3);
+}
+
+.center__h{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.center__v{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 /* Dispositivos acima 768px */
 @media (min-width: 768px) {
   .containerSection {
@@ -240,8 +306,16 @@ p.font__color4{
     width: 33.3%;
   }
 
+  .item-40 {
+    width: 40%;
+  }
+
   .item-50 {
     width: 50%;
+  }
+
+  .item-60 {
+    width: 60%;
   }
 
   .item-66 {
@@ -289,16 +363,24 @@ p.font__color4{
     grid-template-columns: repeat(6, 1fr);
   }
 
-  .containerXP .mb16{
-    margin-bottom: 0;
+  .mb16 {
+    margin-bottom: 16px;
   }
 
-  .containerXP__1col{
+  .containerXP__1col {
     grid-column: span 1;
   }
-  .containerXP__2col{
+
+  .containerXP__2col {
     grid-column: span 2;
   }
+
+  .skillsAbout li {
+    width: 30%;
+    padding: 5px 0;
+  }
+
+
 }
 
 /* #root {

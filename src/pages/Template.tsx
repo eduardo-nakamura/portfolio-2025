@@ -1,16 +1,55 @@
-import { Link } from "react-router-dom";
-import SimpleBtn from "../components/SimpleBtn";
-import { useTranslation } from 'react-i18next';
+import { Link } from "react-router-dom"
+import SimpleBtn from "../components/SimpleBtn"
+import { useTranslation } from 'react-i18next'
 import resume from '../assets/json/resume.json'
 import skills from '../assets/json/skills.json'
 import experience from '../assets/json/experience.json'
 
+import vet1 from '../assets/images/vet-1.png'
+
+import vet3 from '../assets/images/vet-3.png'
+import vet4 from '../assets/images/vet-4.png'
+import vet5 from '../assets/images/vet-5.png'
+
+import ProjectTitle from "../components/ProjectTitle"
+import GalleryModal from "../components/GalleryModal"
+
+interface Image {
+  id: number;
+  src: string;
+  alt: string;
+}
 export default function Template() {
   const { t } = useTranslation();
 
+  const images: Image[] = [
+    { id: 1, src: vet1, alt: 'Header' },
+    { id: 2, src: vet4, alt: 'Mobile Header' },
+    { id: 3, src: vet5, alt: 'Mobile Map' },
+    { id: 4, src: vet3, alt: 'Values' }
+];
 
   return (
-    <div>
+    <div >
+      <ProjectTitle 
+        titleImage={vet1} 
+        titleh1={'Veterinario'} 
+        titleHref={'https://eduardo-nakamura.github.io/veterinario-next/'} 
+   
+      />
+      
+      <div className="containerSection" style={{flexDirection: 'column'}}>
+        <h3>Modal</h3>
+        {/* <div className="containerModal">
+          <div className="itemModal itemModal__col2">
+            <img src={vet1} alt=""  />
+          </div>
+          <div className="itemModal"></div>
+          <div className="itemModal"></div>
+          <div className="itemModal itemModal__col2"></div>
+        </div> */}
+       <GalleryModal images={images} />
+      </div>
       <div className="containerSection">
         <div className="item-50">
           <SimpleBtn

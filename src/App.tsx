@@ -1,70 +1,84 @@
 import { Routes, Route } from 'react-router-dom';
-import './App.css'
+import './App.css';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Works from './pages/Works';
 import Header from './components/Header';
 import Template from './pages/Template';
-import { useState } from 'react';
 import Dice from './components/Dice';
+import { AppContextProvider, useAppContext } from './components/AppContext';
+import { motion } from 'framer-motion';
+import { useState } from 'react';
 // import SimpleBtn from './components/SimpleBtn';
 
-function App() {
-  const [count, setCount] = useState(0)
+function AppContent() {
+  const { count, darkMode } = useAppContext();
 
-  // function changeStyle(){
-  //   let novoNumero;
-  //   do {
-  //     novoNumero = Math.floor(Math.random() * 6); // Gera um número entre 0 e 5
-  //   } while (novoNumero === count); // Evita repetição do número anterior
-  //   setCount(novoNumero);
-  // }
+  const [isHoveredOrTouched, setIsHoveredOrTouched] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHoveredOrTouched(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHoveredOrTouched(false);
+  };
+
+  const handleTouchStart = () => {
+    setIsHoveredOrTouched(true);
+  };
+
+  const handleTouchEnd = () => {
+    setIsHoveredOrTouched(false);
+  };
+
+  const initialX = 0;
+  const movedX = -30;
 
   return (
-    <div className={' fonts__' + count}>
-      
+    <div style={{ minHeight: '90vh' }} className={`fonts__${count} ${darkMode ? 'darkmode' : ''}`}>
       <Header />
-      {/* <SimpleBtn textbtn={'Roll'} onClick={changeStyle} /> 
-      <p>Count: {count}</p> */}
-      <Dice count={count} setCount={setCount}/>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/works" element={<Works />} />
-        <Route path="/contact" element={<Contact />} />        
-        <Route path="/template" element={<Template />} />
-        {/* 
-        <Route path="/user/:id" element={<User />} /> */}
-      </Routes>
-
-
-
-      {/* <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <motion.div
+        style={{ 
+          borderRadius: '10px',
+          position: 'fixed', 
+          right: -40, 
+          bottom: -10,
+          padding: '20px',
+          backgroundColor: `${darkMode ? 'var(--color-4)' : 'var(--color-2)'}`
+         }}
+        initial={{ x: initialX,rotate: 0 }}
+        animate={{ x: isHoveredOrTouched ? movedX : initialX, rotate: isHoveredOrTouched ? -20 : 0 }}
+        transition={{ duration: 0.3 }}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        onTouchCancel={handleTouchEnd}
+      >
+        <Dice icon={true} />
+      </motion.div>
+      <div className="containerAll">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/works" element={<Works />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/template" element={<Template />} />
+          {/* <Route path="/user/:id" element={<User />} /> */}
+        </Routes>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p> */}
     </div>
-
-
-
-  )
+  );
 }
 
-export default App
+function App() {
+  return (
+    <AppContextProvider>
+      <AppContent />
+    </AppContextProvider>
+  );
+}
+
+export default App;
