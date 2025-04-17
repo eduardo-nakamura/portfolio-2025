@@ -1,7 +1,7 @@
 [
     {
         "nome": "HTML 5",
-        "cover": "/portfolio-2025/src/assets/images/html5.png"
+        "cover": "./portfolio-2025/src/assets/images/html5.png"
     },
     {
         "nome": "CSS 3",
