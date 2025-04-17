@@ -1,13 +1,11 @@
 
 import ContactComponent from '../components/ContactComponent'
 
-interface ContactProps {
-  darkMode?: boolean
-}
-export default function Contact(props: ContactProps) {
+
+export default function Contact() {
 
   return (
-    <ContactComponent darkMode={props.darkMode ?? false} >
+    <ContactComponent  >
     </ContactComponent>
   )
 }

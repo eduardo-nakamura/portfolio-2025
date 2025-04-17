@@ -1,4 +1,5 @@
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import './App.css';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -13,6 +14,7 @@ import { useState } from 'react';
 // import SimpleBtn from './components/SimpleBtn';
 
 function AppContent() {
+
   const { count, darkMode } = useAppContext();
 
   const [isHoveredOrTouched, setIsHoveredOrTouched] = useState(false);
@@ -37,39 +39,44 @@ function AppContent() {
   const movedX = -30;
 
   return (
-    <div style={{ minHeight: '90vh' }} className={`fonts__${count} ${darkMode ? 'darkmode' : ''}`}>
-      <Header />
-      <motion.div
-        style={{ 
-          borderRadius: '10px',
-          position: 'fixed', 
-          right: -40, 
-          bottom: -10,
-          padding: '20px',
-          backgroundColor: `${darkMode ? 'var(--color-4)' : 'var(--color-2)'}`
-         }}
-        initial={{ x: initialX,rotate: 0 }}
-        animate={{ x: isHoveredOrTouched ? movedX : initialX, rotate: isHoveredOrTouched ? -20 : 0 }}
-        transition={{ duration: 0.3 }}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
-        onTouchCancel={handleTouchEnd}
-      >
-        <Dice icon={true} />
-      </motion.div>
-      <div className="containerAll">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/works" element={<Works />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/template" element={<Template />} />
-          {/* <Route path="/user/:id" element={<User />} /> */}
-        </Routes>
+    <Router basename={process.env.NODE_ENV === 'production' ? '/portfolio-2025' : ''}>
+
+      <div style={{ minHeight: '90vh' }} className={`fonts__${count} ${darkMode ? 'darkmode' : ''}`}>
+        <Header />
+        <motion.div
+          style={{
+            borderRadius: '10px',
+            position: 'fixed',
+            right: -40,
+            bottom: -10,
+            padding: '20px',
+            backgroundColor: `${darkMode ? 'var(--color-4)' : 'var(--color-2)'}`
+          }}
+          initial={{ x: initialX, rotate: 0 }}
+          animate={{ x: isHoveredOrTouched ? movedX : initialX, rotate: isHoveredOrTouched ? -20 : 0 }}
+          transition={{ duration: 0.3 }}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          onTouchCancel={handleTouchEnd}
+        >
+          <Dice icon={true} />
+        </motion.div>
+        <div className="containerAll">
+
+
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/works" element={<Works />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/template" element={<Template />} />
+          </Routes>
+
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 

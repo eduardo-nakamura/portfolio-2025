@@ -2,6 +2,7 @@ import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import HttpBackend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector'; // Importe o LanguageDetector
+const repositoryName = 'portfolio-2025'; // Nome do seu repositório
 
 i18next
     .use(HttpBackend)
@@ -12,7 +13,9 @@ i18next
         debug: import.meta.env.DEV, // ativa o modo de depuração (opcional)
 
         backend: {
-            loadPath: '/locales/{{lng}}/translation.json', // caminho para os arquivos JSON
+            loadPath: process.env.NODE_ENV === 'production'
+                ? `/${repositoryName}/locales/{{lng}}/{{ns}}.json`
+                : '/locales/{{lng}}/{{ns}}.json',
         },
 
         interpolation: {
