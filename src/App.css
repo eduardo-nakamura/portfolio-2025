@@ -48,10 +48,12 @@ body {
 .containerGallery__box {
   display: flex;
   flex-direction: row;
+
 }
 
 .containerGallery__text {
   margin-left: 10px;
+  margin-top: 25px;
 }
 
 p.containerGallery__title {

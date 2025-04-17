@@ -4,7 +4,7 @@
         "nome": "pokedex_title",
         "descricao": "pokedex_description",
         "rota": "https://eduardo-nakamura.github.io/pokedex/",
-        "cover": "src/assets/images/pokedex.png",
+        "cover": "src/assets/images/cover-pokedex.png",
         "tags": [
             "react",
             "html",
@@ -17,9 +17,21 @@
         "nome": "rpg__app_title",
         "descricao": "rpg__app_description",
         "rota": "https://eduardo-nakamura.github.io/rpg-apps-angular/",
-        "cover": "src/assets/images/rpg-apps.png",
+        "cover": "src/assets/images/cover-rpg-apps.png",
         "tags": [
             "angular",
+            "html",
+            "css"
+        ]
+    },
+    {
+        "id": 3,
+        "nome": "vet_title",
+        "descricao": "vet__app_description",
+        "rota": "https://eduardo-nakamura.github.io/veterinario-next/",
+        "cover": "src/assets/images/cover-vet.png",
+        "tags": [
+            "react",
             "html",
             "css"
         ]

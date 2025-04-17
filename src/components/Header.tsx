@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import './Header.css'
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -27,8 +27,7 @@ export default function Header() {
     return (
         <nav className="navbar">
             <div className="navbar-container">
-                <div className="navbar-brand">
-                    
+                <div className="navbar-brand">                    
                     <Link to="/">Home</Link>
                 </div>
                 <div className="menu-icon" onClick={toggleMenu}>

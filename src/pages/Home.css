@@ -26,9 +26,15 @@
 .darkmode .home__header__img{
     border: 3px solid var(--color-3);
 }
+.home__header__pos{
+    margin-top: 24px;
+}
 @media (min-width: 768px) {
     .home__header__img{
         max-width: 240px;
         max-height: 240px;
+    }
+    .home__header__pos{
+        margin-top: 0;
     }
 }

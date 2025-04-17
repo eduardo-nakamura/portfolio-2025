@@ -90,9 +90,6 @@ export default function About() {
               <p className="font__color4">{t('education3_date')}</p>
             </div>
           </div>
-
-
-
         </div>
       </div>
 
