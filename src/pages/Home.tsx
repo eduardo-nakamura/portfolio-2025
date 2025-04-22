@@ -4,10 +4,17 @@ import photo from '../assets/images/eduardo-nakamura-photo.png'
 import SimpleBtn from '../components/SimpleBtn';
 import Dice from '../components/Dice';
 import { Link } from 'react-router-dom';
-import skills from '../assets/json/skills.json'
 import resume from '../assets/json/resume.json'
 
 import { motion } from 'framer-motion';
+
+import html5 from '../assets/images/html5.png';
+import css3 from '../assets/images/css3.png';
+import javascript from '../assets/images/javascript.png';
+import angular from '../assets/images/angular.png';
+import react from '../assets/images/react.png';
+import sass from '../assets/images/sass.png';
+import unity from '../assets/images/unity.png';
 
 export default function Home() {
   const { t } = useTranslation();
@@ -45,7 +52,7 @@ export default function Home() {
         <div className="item-100">
           <h3>{t('skills')}</h3>
           <ul className="containerSkills">
-            {skills.map(skill => (
+            {skills2.map(skill => (
               <li key={skill.nome}>
                 <img src={skill.cover} alt={skill.nome} />
                 <p>{skill.nome}</p>
@@ -95,3 +102,34 @@ export default function Home() {
     </div>
   )
 }
+
+const skills2 = [
+  {
+      "nome": "HTML 5",
+      "cover": html5
+  },
+  {
+      "nome": "CSS 3",
+      "cover": css3
+  },
+  {
+      "nome": "JAVASCRIPT",
+      "cover": javascript
+  },
+  {
+      "nome": "ANGULAR",
+      "cover": angular
+  },
+  {
+      "nome": "REACT",
+      "cover": react
+  },
+  {
+      "nome": "SASS",
+      "cover": sass
+  },
+  {
+      "nome": "Unity",
+      "cover": unity
+  }
+]
