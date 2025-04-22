@@ -37,9 +37,9 @@ function AppContent() {
 
   const initialX = 0;
   const movedX = -30;
-
+// base: process.env.NODE_ENV === 'production' ? `/${repositoryName}/` : '/',
   return (
-    <Router basename={process.env.NODE_ENV === 'production' ? '/portfolio-2025' : ''}>
+    <Router basename={process.env.NODE_ENV === 'production' ? '/portfolio-2025' : '/'}>
 
       <div style={{ minHeight: '90vh' }} className={`fonts__${count} ${darkMode ? 'darkmode' : ''}`}>
         <Header />
