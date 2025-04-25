@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-const repositoryName = 'seu-repositorio'; 
+const repositoryName = 'portfolio-2025'; 
 
 // https://vite.dev/config/
 export default defineConfig({

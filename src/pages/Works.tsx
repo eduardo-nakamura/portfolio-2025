@@ -47,7 +47,7 @@ export default function Works() {
       />
       <h1>Product Details</h1>
       <p>Product ID: {Id}</p>
-
+      <p>{error}</p>
 
     </div>
   )
