@@ -137,6 +137,7 @@ function ContactComponent() {
       <div className="item-50">
         <FormContainer id="contactForm">
           <textarea
+          className="inputClass"
             ref={mensagemRef}
             name="user_message"
             placeholder={t('message')}

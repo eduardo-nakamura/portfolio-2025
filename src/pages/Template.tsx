@@ -40,14 +40,7 @@ export default function Template() {
       
       <div className="containerSection" style={{flexDirection: 'column'}}>
         <h3>Modal</h3>
-        {/* <div className="containerModal">
-          <div className="itemModal itemModal__col2">
-            <img src={vet1} alt=""  />
-          </div>
-          <div className="itemModal"></div>
-          <div className="itemModal"></div>
-          <div className="itemModal itemModal__col2"></div>
-        </div> */}
+ 
        <GalleryModal images={images} />
       </div>
       <div className="containerSection">

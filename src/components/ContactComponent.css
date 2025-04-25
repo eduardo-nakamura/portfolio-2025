@@ -3,6 +3,7 @@
     -webkit-text-fill-color: white !important;
     -webkit-box-shadow: 0 0 0px 1000px var(--color-4) inset !important;
     transition: background-color 5000s ease-in-out 0s;
+    color: white;
 }
 
 input:is(:-webkit-autofill, :autofill).inputClass,
@@ -10,19 +11,40 @@ input:is(:-webkit-autofill, :autofill).inputClass {
     -webkit-text-fill-color: var(--color-1) !important;
     -webkit-box-shadow: 0 0 0px 1000px white inset !important;
     transition: background-color 5000s ease-in-out 0s;
+
+
 }
 
-.submitButton{
+.inputClass {
+    background-color: var(--color-3);
+}
+
+.darkmode .inputClass {
+    background-color: var(--color-4);
+}
+
+
+.inputClass:-ms-input-placeholder {
+    color: var(--color-1);
+}
+
+
+.inputClass::-webkit-input-placeholder {
+    color: var(--color-1);
+}
+
+
+.submitButton {
     background-color: var(--color-2);
     width: 136px;
     padding: 16px 32px;
     border-radius: 8px;
-    color: white;    
+    color: white;
     font-weight: 700;
     text-transform: uppercase;
 }
 
-.darkmode .submitButton{
+.darkmode .submitButton {
     background-color: var(--color-4);
-    color: white;        
+    color: white;
 }

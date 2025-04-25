@@ -11,6 +11,7 @@ import Dice from './components/Dice';
 import { AppContextProvider, useAppContext } from './components/AppContext';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import WorksList from './pages/WorksList';
 // import SimpleBtn from './components/SimpleBtn';
 
 function AppContent() {
@@ -69,7 +70,8 @@ function AppContent() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/works" element={<Works />} />
+            <Route path="/works/:Id" element={<Works />} />
+            <Route path="/works" element={<WorksList />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/template" element={<Template />} />
           </Routes>
