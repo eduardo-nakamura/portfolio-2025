@@ -5,11 +5,10 @@ import resume from '../assets/json/resume.json'
 import skills from '../assets/json/skills.json'
 import experience from '../assets/json/experience.json'
 
-import vet1 from '../assets/images/vet-1.png'
-
-import vet3 from '../assets/images/vet-3.png'
-import vet4 from '../assets/images/vet-4.png'
-import vet5 from '../assets/images/vet-5.png'
+import vet1 from '../assets/images/vet/header-home.png'
+import vet3 from '../assets/images/vet/values.png'
+import vet4 from '../assets/images/vet/header-home-mobile.png'
+import vet5 from '../assets/images/vet/map-app-mobile.png'
 
 import ProjectTitle from "../components/ProjectTitle"
 import GalleryModal from "../components/GalleryModal"
@@ -27,7 +26,7 @@ export default function Template() {
     { id: 2, src: vet4, alt: 'Mobile Header' },
     { id: 3, src: vet5, alt: 'Mobile Map' },
     { id: 4, src: vet3, alt: 'Values' }
-];
+  ];
 
   return (
     <div >

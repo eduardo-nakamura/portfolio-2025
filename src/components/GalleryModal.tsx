@@ -39,7 +39,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
 
     return (
         <div className="gallery-container">
-            <h1>Image Gallery</h1>
+            <h3>Image Gallery</h3>
             <div className="gallery-grid">
                 {images.map((image, index) => (
                     <motion.div 
@@ -49,7 +49,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
                     key={image.id} className={getGalleryItemClass(index)} onClick={() => openModal(image)}>
                         <img src={image.src} alt={image.alt} className="gallery-image" />
                     </motion.div>
-                ))}
+                ))}                
             </div>
 
             {isModalOpen && selectedImage && (

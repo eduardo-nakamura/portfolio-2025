@@ -13,7 +13,7 @@ export default function About() {
         </div>
         <div className='item-66'>
           <p><strong>Frontend | Game Developer</strong></p>
-          <p>{t('summary')}</p>
+          <p>{t('mysummary')}</p>
         </div>
       </div>
       <div className="containerSection">

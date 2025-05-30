@@ -51,7 +51,8 @@ function AppContent() {
             right: -40,
             bottom: -10,
             padding: '20px',
-            backgroundColor: `${darkMode ? 'var(--color-4)' : 'var(--color-2)'}`
+            backgroundColor: `${darkMode ? 'var(--color-4)' : 'var(--color-2)'}`,
+                    zIndex: '10'
           }}
           initial={{ x: initialX, rotate: 0 }}
           animate={{ x: isHoveredOrTouched ? movedX : initialX, rotate: isHoveredOrTouched ? -20 : 0 }}
