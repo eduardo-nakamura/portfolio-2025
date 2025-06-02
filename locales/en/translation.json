@@ -70,5 +70,8 @@
     "home_text": "Board gamer enthusiastic and frontend by nature. Roll a dice and have fun!",
     "roll_dice": "Roll Dice",
     "summary": "Summary",
-    "error": "Page not Found"
+    "error": "Page not Found",
+    "page": "Page",
+    "repository": "Repository",
+    "seemore": "See more works"
 }
