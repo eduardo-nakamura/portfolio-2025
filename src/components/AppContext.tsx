@@ -18,9 +18,11 @@ export const useAppContext = () => {
 };
 
 export const AppContextProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(getRandomNumber());
   const [darkMode, setDarkMode] = useState(false);
-
+  function getRandomNumber(): number {
+    return Math.floor(Math.random() * 6); // Multiplies by (max + 1) to include the max value
+  }
   return (
     <AppContext.Provider value={{ count, setCount, darkMode, setDarkMode }}>
       {children}

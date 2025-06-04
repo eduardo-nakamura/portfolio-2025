@@ -16,6 +16,28 @@ import react from '../assets/images/react.png';
 import sass from '../assets/images/sass.png';
 import unity from '../assets/images/unity.png';
 
+import coverPokedex from '../assets/images/cover-pokedex.png';
+import coverRpgApps from '../assets/images/cover-rpg-apps.png';
+import coverVet from '../assets/images/cover-vet.png';
+import coverSurvivor from '../assets/images/cover-survivor.png';
+import coverPuzzle from '../assets/images/cover-puzzle.png';
+import coverPlatform from '../assets/images/cover-platform.png';
+import coverSki from '../assets/images/cover-ski.png';
+
+interface CoverImageMap {
+  [key: string]: string; // This is the index signature
+}
+
+const coverImages: CoverImageMap = {
+  'cover-pokedex': coverPokedex,
+  'cover-rpg-apps': coverRpgApps,
+  'cover-vet': coverVet, // Assuming you have these imported
+  'cover-survivor': coverSurvivor,
+  'cover-puzzle': coverPuzzle,
+  'cover-platform': coverPlatform,
+  'cover-ski': coverSki,
+};
+
 export default function Home() {
   const { t } = useTranslation();
 
@@ -62,12 +84,12 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="containerSection">
+      <div className="containerSection" style={{flexDirection: 'column'}}>
         <div className="item-100">
           <h3 >Works</h3>
           <ul className="containerGallery">
 
-            {resume.map((item) => (
+            {resume.slice(0, 6).map((item) => (
               <li key={item.id}>
                 <Link to={item.rota} target="_blank" rel="noopener noreferrer">
                   <div className="containerGallery__box">
@@ -77,7 +99,7 @@ export default function Home() {
                       transition={{ duration: 0.3 }}   
                       whileHover={{ opacity: 1, scale: 1 }}                   
                     >
-                      <img src={item.cover} alt={t(item.nome)} />
+                        <img src={coverImages[item.cover]} alt={t(item.nome)} />
                     </motion.div>
                     <div className="containerGallery__text">
                       <p className="containerGallery__title"><strong>{t(item.nome)}</strong></p>
@@ -95,6 +117,9 @@ export default function Home() {
             ))}
 
           </ul>
+        </div>
+        <div className="item-100" style={{marginTop: '20px', justifyContent: 'flex-end', direction: 'rtl'}}>
+           <Link to="/works"><SimpleBtn textbtn='seemore' /></Link>
         </div>
       </div>
 

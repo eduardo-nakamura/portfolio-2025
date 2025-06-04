@@ -10,6 +10,7 @@ body {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+ 
 }
 
 .containerAll {
@@ -47,8 +48,7 @@ body {
 
 .containerGallery__box {
   display: flex;
-  flex-direction: row;
-
+  flex-direction: column;  
 }
 
 .containerGallery__text {
@@ -83,10 +83,10 @@ p.containerGallery__subtitle {
   border-radius: 4px;
 }
 
-.containerGallery img {
+/* .containerGallery img {
   width: 80px;
   height: 80px;
-}
+} */
 
 /* Skills */
 .containerSkills {
@@ -340,6 +340,7 @@ body .darkmode {
 
   .containerGallery__box {
     flex-direction: column;
+    /* background-color: red; */
   }
 
   .containerGallery__tags {

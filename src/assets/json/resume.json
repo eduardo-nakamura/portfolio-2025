@@ -3,8 +3,8 @@
         "id": 1,
         "nome": "pokedex_title",
         "descricao": "pokedex_description",
-        "rota": "https://eduardo-nakamura.github.io/pokedex/",
-        "cover": "portfolio-2025/src/assets/images/cover-pokedex.png",
+        "rota": "/works/pokedex",
+        "cover": "cover-pokedex",
         "tags": [
             "react",
             "html",
@@ -16,8 +16,8 @@
         "id": 2,
         "nome": "rpg__app_title",
         "descricao": "rpg__app_description",
-        "rota": "https://eduardo-nakamura.github.io/rpg-apps-angular/",
-        "cover": "/portfolio-2025/src/assets/images/cover-rpg-apps.png",
+        "rota": "/works/rpg-app",
+        "cover": "cover-rpg-apps",
         "tags": [
             "angular",
             "html",
@@ -28,12 +28,56 @@
         "id": 3,
         "nome": "vet_title",
         "descricao": "vet__app_description",
-        "rota": "https://eduardo-nakamura.github.io/veterinario-next/",
-        "cover": "/src/assets/images/cover-vet.png",
+        "rota": "/works/veterinario",
+        "cover": "cover-vet",
         "tags": [
             "react",
             "html",
             "css"
         ]
-    }
+    },
+  {
+    "id": 4,
+    "nome": "survivor_title",
+    "descricao": "survivor_description",
+    "rota": "/works/survivor",
+    "cover": "cover-survivor",
+    "tags": [
+      "unity",
+      "C#"
+    ]
+  },
+  {
+    "id": 5,
+    "nome": "puzzle_title",
+    "descricao": "puzzle_description",
+    "rota": "/works/puzzle",
+      "cover": "cover-puzzle",
+    "tags": [
+      "unity",
+      "c#"
+    ]
+  },
+  {
+    "id": 6,
+    "nome": "platform_title",
+    "descricao": "platform_description",
+    "rota": "/works/platform",
+      "cover": "cover-platform",
+    "tags": [
+      "unity",
+      "c#"
+    ]
+  },
+  {
+    "id": 7,
+    "nome": "ski_title",
+    "descricao": "ski_description",
+    "rota": "/works/ski",
+      "cover": "cover-ski",
+    "tags": [
+      "unity",
+      "c#"
+    ]
+  }
 ]

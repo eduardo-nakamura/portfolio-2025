@@ -58,9 +58,9 @@ export default function Header() {
                     <li className="nav-item">
                         <Link to="/contact"><FontAwesomeIcon icon={faComment} /> {t('contact')}</Link>
                     </li>
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
                         <Link to="/template"> Template</Link>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
         </nav>

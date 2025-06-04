@@ -33,8 +33,8 @@ export default function Template() {
       <ProjectTitle 
         titleImage={vet1} 
         titleh1={'Veterinario'} 
-        titleHref={'https://eduardo-nakamura.github.io/veterinario-next/'} 
-   
+        titleHref={'https://eduardo-nakamura.github.io/veterinario-next/'}      
+              titleRepository={'https://eduardo-nakamura.github.io/veterinario-next/'}
       />
       
       <div className="containerSection" style={{flexDirection: 'column'}}>

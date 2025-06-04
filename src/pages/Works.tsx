@@ -20,8 +20,8 @@ interface WorkParams {
   cover: string;
   summary: string;
   images: Image[];
-  href?: string;
-  repository?: string;
+  href: string;
+  repository: string;
   video?: string;
 }
 
@@ -43,12 +43,12 @@ export default function Works() {
     // Simulação de dados locais
     const localWorks = [
       { id: 'pokedex', title: 'pokedex_title', cover: headerPokedex, summary: "pokedex_summary", images: pokeGallery, href: 'https://eduardo-nakamura.github.io/pokedex/', repository: '' },
-      { id: 'rpg-app', title: 'rpg__app_title', cover: headerRpgApps, summary: "rpg__app_summary", images: vetGallery, href: 'https://eduardo-nakamura.github.io/veterinario-next/', repository: '' },
+      { id: 'rpg-app', title: 'rpg__app_title', cover: headerRpgApps, summary: "rpg__app_summary", images: rpgGallery, href: 'https://eduardo-nakamura.github.io/veterinario-next/', repository: '' },
       { id: 'veterinario', title: 'vet_title', cover: headerVet, summary: "vet__app_summary", images: vetGallery, href: 'https://eduardo-nakamura.github.io/veterinario-next/', repository: '' },
-      { id: 'survivor', title: 'survivor_title', cover: headerSurvivor, summary: "survivor_summary", images: survivorGallery, href: '', repository: 'https://github.com/eduardo-nakamura/fighter-survivor', video:"71DvuxZHfXI" },
-      { id: 'puzzle', title: 'puzzle_title', cover: headerPuzzle, summary: "puzzle_summary", images: puzzleGallery, href: 'https://garouden.itch.io/zombie-puzzle', repository: '', video:"xyExv__wF4s" },
-      { id: 'platform', title: 'platform_title', cover: headerPlatform, summary: "platform_summary", images: platformGallery, href: '', repository: 'https://github.com/eduardo-nakamura/platform-game', video:"RBrHJ9iiyHk" },
-      { id: 'ski', title: 'ski_title', cover: headerSki, summary: "ski_summary", images: skiGallery, href: 'https://garouden.itch.io/skii-level-up', repository: 'https://github.com/eduardo-nakamura/LevelUpGameJam', video:"JK5YkardG7Y" },
+      { id: 'survivor', title: 'survivor_title', cover: headerSurvivor, summary: "survivor_summary", images: survivorGallery, href: '', repository: 'https://github.com/eduardo-nakamura/fighter-survivor', video: "71DvuxZHfXI" },
+      { id: 'puzzle', title: 'puzzle_title', cover: headerPuzzle, summary: "puzzle_summary", images: puzzleGallery, href: 'https://garouden.itch.io/zombie-puzzle', repository: '', video: "xyExv__wF4s" },
+      { id: 'platform', title: 'platform_title', cover: headerPlatform, summary: "platform_summary", images: platformGallery, href: '', repository: 'https://github.com/eduardo-nakamura/platform-game', video: "RBrHJ9iiyHk" },
+      { id: 'ski', title: 'ski_title', cover: headerSki, summary: "ski_summary", images: skiGallery, href: 'https://garouden.itch.io/skii-level-up', repository: 'https://github.com/eduardo-nakamura/LevelUpGameJam', video: "JK5YkardG7Y" },
     ];
     const foundWork = localWorks.find(album => album.id === Id);
 
@@ -86,17 +86,17 @@ export default function Works() {
         :
         <div className="containerSection">
           <div className='item-100'>
-            <h3>{t('error')}</h3>
+            <h3>{t('error')} - {error}</h3>
           </div>
         </div>}
       <div>
-       
+
       </div>
-      {work && work.video ? 
-      <div className="containerSection" style={{ flexDirection: 'column' }}>
-        <h3>Video</h3>
-        <iframe style={{margin: '0 auto', border: 'none'}} width="560" height="315" src={`http://www.youtube.com/embed/${work.video}?loop=1&autoplay=1&mute=1&playlist=${work.video}&controls=0&modestbranding=1`} allowFullScreen />
-      </div> : ''}
+      {work && work.video ?
+        <div className="containerSection" style={{ flexDirection: 'column' }}>
+          <h3>Video</h3>
+          <iframe style={{ margin: '0 auto', border: 'none' }} width="560" height="315" src={`http://www.youtube.com/embed/${work.video}?loop=1&autoplay=1&mute=1&playlist=${work.video}&controls=0&modestbranding=1`} allowFullScreen />
+        </div> : ''}
 
       <div className="containerSection" style={{ flexDirection: 'column' }}>
         {work && <GalleryModal images={work.images} />}
@@ -137,6 +137,22 @@ const pokeGallery: Image[] = [
   { id: 2, src: pokeDetailMobile, alt: 'Mobile Header Home' },
   { id: 3, src: pokeSearchMobile, alt: 'Mobile Map' },
   { id: 4, src: pokeSearch, alt: 'Values' }
+];
+
+import rpg0 from '../assets/images/rpg/home.png'
+import rpg1 from '../assets/images/rpg/game-hooks.png'
+import rpg2 from '../assets/images/rpg/dice-roller.png'
+import rpg3 from '../assets/images/rpg/initiative-tracker.png'
+import rpg4 from '../assets/images/rpg/npc-generator.png'
+import rpg5 from '../assets/images/rpg/treasure-generator.png'
+
+const rpgGallery: Image[] = [
+  { id: 1, src: rpg0, alt: 'Header Home' },
+  { id: 2, src: rpg1, alt: 'Game Hooks' },
+  { id: 3, src: rpg2, alt: 'Dice Roller' },
+  { id: 4, src: rpg3, alt: 'Initiative Tracker' },
+  { id: 5, src: rpg4, alt: 'Npc Generator' },
+  { id: 6, src: rpg5, alt: 'Treasure Generator' }
 ];
 
 import survivor0 from '../assets/images/survivor/survivor-0.png'

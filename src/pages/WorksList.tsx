@@ -2,106 +2,37 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
-
-// Import your resume data and images
-import pokedex from '../assets/images/cover-pokedex.png';
-import rpgApp from '../assets/images/cover-rpg-apps.png';
-import vet from '../assets/images/cover-vet.png';
-import survivor from '../assets/images/cover-survivor.png';
-import puzzle from '../assets/images/cover-puzzle.png';
-import platform from '../assets/images/cover-platform.png';
-import ski from '../assets/images/cover-ski.png';
 import TagsComponent from '../components/TagsComponent'; // Assuming this component exists
+import resume from '../assets/json/resume.json'
+
+import coverPokedex from '../assets/images/cover-pokedex.png';
+import coverRpgApps from '../assets/images/cover-rpg-apps.png';
+import coverVet from '../assets/images/cover-vet.png';
+import coverSurvivor from '../assets/images/cover-survivor.png';
+import coverPuzzle from '../assets/images/cover-puzzle.png';
+import coverPlatform from '../assets/images/cover-platform.png';
+import coverSki from '../assets/images/cover-ski.png';
 
 interface Option {
   label: string;
   value: string;
 }
+interface CoverImageMap {
+  [key: string]: string; // This is the index signature
+}
 
-// Your resume data (keeping it here for a complete example)
-const resumee = [
-  {
-    "id": 1,
-    "nome": "pokedex_title",
-    "descricao": "pokedex_description",
-    "rota": "/works/pokedex",
-    "cover": pokedex,
-    "tags": [
-      "react",
-      "html",
-      "css",
-      "typescript"
-    ]
-  },
-  {
-    "id": 2,
-    "nome": "rpg__app_title",
-    "descricao": "rpg__app_description",
-    "rota": "/works/rpg-app",
-    "cover": rpgApp,
-    "tags": [
-      "angular",
-      "html",
-      "css"
-    ]
-  },
-  {
-    "id": 3,
-    "nome": "vet_title",
-    "descricao": "vet__app_description",
-    "rota": "/works/veterinario",
-    "cover": vet,
-    "tags": [
-      "react",
-      "html",
-      "css"
-    ]
-  },
-  {
-    "id": 4,
-    "nome": "survivor_title",
-    "descricao": "survivor_description",
-    "rota": "/works/survivor",
-    "cover": survivor,
-    "tags": [
-      "unity",
-      "C#"
-    ]
-  },
-  {
-    "id": 5,
-    "nome": "puzzle_title",
-    "descricao": "puzzle_description",
-    "rota": "/works/puzzle",
-    "cover": puzzle,
-    "tags": [
-      "unity",
-      "c#"
-    ]
-  },
-  {
-    "id": 6,
-    "nome": "platform_title",
-    "descricao": "platform_description",
-    "rota": "/works/platform",
-    "cover": platform,
-    "tags": [
-      "unity",
-      "c#"
-    ]
-  },
-  {
-    "id": 7,
-    "nome": "ski_title",
-    "descricao": "ski_description",
-    "rota": "/works/ski",
-    "cover": ski,
-    "tags": [
-      "unity",
-      "c#"
-    ]
-  }
-];
+
+
+
+const coverImages: CoverImageMap = {
+  'cover-pokedex': coverPokedex,
+  'cover-rpg-apps': coverRpgApps,
+  'cover-vet': coverVet, // Assuming you have these imported
+  'cover-survivor': coverSurvivor,
+  'cover-puzzle': coverPuzzle,
+  'cover-platform': coverPlatform,
+  'cover-ski': coverSki,
+};
 
 export default function WorksList() {
   const { t } = useTranslation();
@@ -151,7 +82,7 @@ export default function WorksList() {
     });
   };
 
-  const filteredResumee = resumee.filter(item => {
+  const filteredResumee = resume.filter(item => {
     // If 'All' is selected, or if nothing is selected (which implies 'All' due to handleCheckboxChange), show all items
     if (selectedOptions.includes('') || selectedOptions.length === 0) {
       return true;
@@ -196,7 +127,7 @@ export default function WorksList() {
                       transition={{ duration: 0.3 }}
                       whileHover={{ opacity: 1, scale: 1 }}
                     >
-                      <img src={item.cover} alt={t(item.nome)} />
+                      <img src={coverImages[item.cover]} alt={t(item.nome)} />
                     </motion.div>
                     <div className="containerGallery__text">
                       <p className="containerGallery__title">
