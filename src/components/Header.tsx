@@ -50,13 +50,13 @@ export default function Header() {
                         <LanguageSelector />
                     </li>
                     <li className="nav-item">
-                        <Link to="/about"><FontAwesomeIcon icon={faFile} /> {t('resume')}</Link>
+                        <Link onClick={() => setIsOpen(false)} to="/about"><FontAwesomeIcon icon={faFile} /> {t('resume')}</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/works"><FontAwesomeIcon icon={faSuitcase} /> {t('projects')}</Link>
+                        <Link onClick={() => setIsOpen(false)}  to="/works"><FontAwesomeIcon icon={faSuitcase} /> {t('projects')}</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/contact"><FontAwesomeIcon icon={faComment} /> {t('contact')}</Link>
+                        <Link onClick={() => setIsOpen(false)}  to="/contact"><FontAwesomeIcon icon={faComment} /> {t('contact')}</Link>
                     </li>
                     {/* <li className="nav-item">
                         <Link to="/template"> Template</Link>
