@@ -13,10 +13,12 @@
 }
 
 .home__header__img{
-    filter: grayscale(100%);
+    /* foto */
+    /* filter: grayscale(100%);
     border: 3px solid var(--color-1);
+    border-radius: 16px; */
+    /* Logo */
 
-    border-radius: 16px;
 }
 .home__header__buttons{
     margin-top: 48px;
@@ -24,7 +26,8 @@
     flex-direction: row;
 }
 .darkmode .home__header__img{
-    border: 3px solid var(--color-3);
+    /* Foto */
+    /* border: 3px solid var(--color-3); */
 }
 .home__header__pos{
     margin-top: 24px;

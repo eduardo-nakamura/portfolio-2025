@@ -1,4 +1,4 @@
-import  { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './Header.css'
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,12 +6,13 @@ import { faBars, faComment, faFile, faMoon, faSuitcase, faSun, faXmark } from '@
 import { useTranslation } from 'react-i18next';
 import LanguageSelector from './LanguageSelector';
 import { useAppContext } from './AppContext';
-
+import logoDay from '../assets/images/logo-day.svg'
+import logoNight from '../assets/images/logo-night.svg'
 
 export default function Header() {
     const { t } = useTranslation();
     const { darkMode, setDarkMode } = useAppContext();
-
+   
     const [isOpen, setIsOpen] = useState(false);
 
 
@@ -22,12 +23,31 @@ export default function Header() {
     const toggleDarkMode = () => {
         setDarkMode(prevMode => !prevMode);
         localStorage.setItem('settings', JSON.stringify({ darkmode: !darkMode }));
-      };
+    };
+    useEffect(() => {
+        if (window.matchMedia) {
+            const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+            setDarkMode(mediaQuery.matches);
+          
+
+            const handleChange = (e: MediaQueryListEvent) => {
+                setDarkMode(e.matches);
+            };
+
+            mediaQuery.addEventListener('change', handleChange);
+
+            return () => {
+                mediaQuery.removeEventListener('change', handleChange);
+            };
+        }
+    }, [])
+
 
     return (
         <nav className="navbar">
             <div className="navbar-container">
-                <div className="navbar-brand">                    
+                <div className="navbar-brand">
+                    <img src={darkMode ? logoNight : logoDay} alt="Eduardo Nakamura Logo" />
                     <Link to="/">Home</Link>
                 </div>
                 <div className="menu-icon" onClick={toggleMenu}>
@@ -53,11 +73,12 @@ export default function Header() {
                         <Link onClick={() => setIsOpen(false)} to="/about"><FontAwesomeIcon icon={faFile} /> {t('resume')}</Link>
                     </li>
                     <li className="nav-item">
-                        <Link onClick={() => setIsOpen(false)}  to="/works"><FontAwesomeIcon icon={faSuitcase} /> {t('projects')}</Link>
+                        <Link onClick={() => setIsOpen(false)} to="/works"><FontAwesomeIcon icon={faSuitcase} /> {t('projects')}</Link>
                     </li>
                     <li className="nav-item">
-                        <Link onClick={() => setIsOpen(false)}  to="/contact"><FontAwesomeIcon icon={faComment} /> {t('contact')}</Link>
+                        <Link onClick={() => setIsOpen(false)} to="/contact"><FontAwesomeIcon icon={faComment} /> {t('contact')}</Link>
                     </li>
+                 
                     {/* <li className="nav-item">
                         <Link to="/template"> Template</Link>
                     </li> */}

@@ -1,11 +1,13 @@
 import './Home.css'
 import { useTranslation } from 'react-i18next';
-import photo from '../assets/images/eduardo-nakamura-photo.png'
+// import photo from '../assets/images/eduardo-nakamura-photo.png'
+import logoDay from '../assets/images/logo-day.svg'
+import logoNight from '../assets/images/logo-night.svg'
 import SimpleBtn from '../components/SimpleBtn';
 import Dice from '../components/Dice';
 import { Link } from 'react-router-dom';
 import resume from '../assets/json/resume.json'
-
+import { useAppContext } from '../components/AppContext';
 import { motion } from 'framer-motion';
 
 import html5 from '../assets/images/html5.png';
@@ -40,12 +42,13 @@ const coverImages: CoverImageMap = {
 
 export default function Home() {
   const { t } = useTranslation();
-
+  const {  darkMode } = useAppContext();
   return (
     <div>
       <div className="containerSection home__header">
         <div className="item-40 center__h">
-          <img className='home__header__img' src={photo} alt="Photo of Eduardo Nakamura" />
+          <img className='home__header__img' src={darkMode ? logoNight : logoDay} alt="Photo of Eduardo Nakamura" />
+
         </div>
         <div className="item-60 center__v" style={{overflowWrap: 'break-word' }}>
           <p className='home__header__pos'><strong>Frontend | Game Developer</strong></p>

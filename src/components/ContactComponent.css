@@ -45,6 +45,6 @@ input:is(:-webkit-autofill, :autofill).inputClass {
 }
 
 .darkmode .submitButton {
-    background-color: var(--color-4);
+    background-color: var(--color-2);
     color: white;
 }
