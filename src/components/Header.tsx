@@ -13,15 +13,16 @@ export default function Header() {
     const { t } = useTranslation();
     const { darkMode, setDarkMode } = useAppContext();
    
-    const [isOpen, setIsOpen] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
 
 
     const toggleMenu = () => {
-        setIsOpen(!isOpen);
+        setMenuOpen(!menuOpen);
     };
 
     const toggleDarkMode = () => {
         setDarkMode(prevMode => !prevMode);
+        setMenuOpen(false);
         localStorage.setItem('settings', JSON.stringify({ darkmode: !darkMode }));
     };
     useEffect(() => {
@@ -51,9 +52,9 @@ export default function Header() {
                     <Link to="/">Home</Link>
                 </div>
                 <div className="menu-icon" onClick={toggleMenu}>
-                    <FontAwesomeIcon size="2x" icon={isOpen ? faXmark : faBars} />
+                    <FontAwesomeIcon size="2x" icon={menuOpen ? faXmark : faBars} />
                 </div>
-                <ul className={`nav-menu ${isOpen ? 'active' : ''}`}>
+                <ul className={`nav-menu ${menuOpen ? 'active' : ''}`}>
                     <li className="nav-item">
                         <FontAwesomeIcon icon={faSun} />
                         <label className="switch">
@@ -66,17 +67,17 @@ export default function Header() {
                         </label>
                         <FontAwesomeIcon icon={faMoon} />
                     </li>
-                    <li className="nav-item">
-                        <LanguageSelector />
+                    <li className="nav-item">                        
+                            <LanguageSelector setMenuOpen={setMenuOpen} />                        
                     </li>
                     <li className="nav-item">
-                        <Link onClick={() => setIsOpen(false)} to="/about"><FontAwesomeIcon icon={faFile} /> {t('resume')}</Link>
+                        <Link onClick={() => setMenuOpen(false)} to="/about"><FontAwesomeIcon icon={faFile} /> {t('resume')}</Link>
                     </li>
                     <li className="nav-item">
-                        <Link onClick={() => setIsOpen(false)} to="/works"><FontAwesomeIcon icon={faSuitcase} /> {t('projects')}</Link>
+                        <Link onClick={() => setMenuOpen(false)} to="/works"><FontAwesomeIcon icon={faSuitcase} /> {t('projects')}</Link>
                     </li>
                     <li className="nav-item">
-                        <Link onClick={() => setIsOpen(false)} to="/contact"><FontAwesomeIcon icon={faComment} /> {t('contact')}</Link>
+                        <Link onClick={() => setMenuOpen(false)} to="/contact"><FontAwesomeIcon icon={faComment} /> {t('contact')}</Link>
                     </li>
                  
                     {/* <li className="nav-item">

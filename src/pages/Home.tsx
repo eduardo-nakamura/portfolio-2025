@@ -94,7 +94,7 @@ export default function Home() {
 
             {resume.slice(0, 6).map((item) => (
               <li key={item.id}>
-                <Link to={item.rota} target="_blank" rel="noopener noreferrer">
+                <Link to={item.rota}  rel="noopener noreferrer">
                   <div className="containerGallery__box">
                     
                     <motion.div
@@ -103,6 +103,7 @@ export default function Home() {
                       whileHover={{ opacity: 1, scale: 1 }}                   
                     >
                         <img src={coverImages[item.cover]} alt={t(item.nome)} />
+                        {item.rota}
                     </motion.div>
                     <div className="containerGallery__text">
                       <p className="containerGallery__title"><strong>{t(item.nome)}</strong></p>

@@ -43,7 +43,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
             <div className="gallery-grid">
                 {images.map((image, index) => (
                     <motion.div 
-                    initial={{ opacity: 0.6 }}
+                    initial={{ opacity: 0.8 }}
                     whileHover={{ opacity: 1 }}
                     transition={{ duration: 0.5 }}
                     key={image.id} className={getGalleryItemClass(index)} onClick={() => openModal(image)}>

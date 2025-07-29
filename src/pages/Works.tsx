@@ -1,8 +1,8 @@
 
 import { useParams } from 'react-router-dom';
 import ProjectTitle from '../components/ProjectTitle';
-import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useEffect, useLayoutEffect, useState } from 'react';
+import { useTranslation, Trans } from 'react-i18next';
 import GalleryModal from '../components/GalleryModal';
 interface ProductParams extends Record<string, string | undefined> {
   Id: string; // Especifica o tipo de productId
@@ -42,12 +42,12 @@ export default function Works() {
 
     // Simulação de dados locais
     const localWorks = [
-      { id: 'pokedex', title: 'pokedex_title', cover: headerPokedex, summary: "pokedex_summary", images: pokeGallery, href: 'https://eduardo-nakamura.github.io/pokedex/', repository: '' },
-      { id: 'rpg-app', title: 'rpg__app_title', cover: headerRpgApps, summary: "rpg__app_summary", images: rpgGallery, href: 'https://eduardo-nakamura.github.io/veterinario-next/', repository: '' },
-      { id: 'veterinario', title: 'vet_title', cover: headerVet, summary: "vet__app_summary", images: vetGallery, href: 'https://eduardo-nakamura.github.io/veterinario-next/', repository: '' },
+      { id: 'pokedex', title: 'pokedex_title', cover: headerPokedex, summary: "pokedex_summary", images: pokeGallery, href: 'https://eduardo-nakamura.github.io/pokedex/', repository: 'https://github.com/eduardo-nakamura/pokedex' },
+      { id: 'rpg-app', title: 'rpg__app_title', cover: headerRpgApps, summary: "rpg__app_summary", images: rpgGallery, href: 'https://eduardo-nakamura.github.io/rpg-apps-angular/', repository: 'https://github.com/eduardo-nakamura/rpg-apps-angular' },
+      { id: 'veterinario', title: 'vet_title', cover: headerVet, summary: "vet__app_summary", images: vetGallery, href: 'https://bmpvet.com.br/', repository: '' },
       { id: 'survivor', title: 'survivor_title', cover: headerSurvivor, summary: "survivor_summary", images: survivorGallery, href: '', repository: 'https://github.com/eduardo-nakamura/fighter-survivor', video: "71DvuxZHfXI" },
       { id: 'puzzle', title: 'puzzle_title', cover: headerPuzzle, summary: "puzzle_summary", images: puzzleGallery, href: 'https://garouden.itch.io/zombie-puzzle', repository: '', video: "xyExv__wF4s" },
-      { id: 'platform', title: 'platform_title', cover: headerPlatform, summary: "platform_summary", images: platformGallery, href: '', repository: 'https://github.com/eduardo-nakamura/platform-game', video: "RBrHJ9iiyHk" },
+      { id: 'platform', title: 'platform_title', cover: headerPlatform, summary: "platform_summary", images: platformGallery, href: 'https://eduardo-nakamura.github.io/fight-platform-web/', repository: 'https://github.com/eduardo-nakamura/platform-game', video: "RBrHJ9iiyHk" },
       { id: 'ski', title: 'ski_title', cover: headerSki, summary: "ski_summary", images: skiGallery, href: 'https://garouden.itch.io/skii-level-up', repository: 'https://github.com/eduardo-nakamura/LevelUpGameJam', video: "JK5YkardG7Y" },
     ];
     const foundWork = localWorks.find(album => album.id === Id);
@@ -61,6 +61,10 @@ export default function Works() {
     }
 
   }, [Id]);
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0)
+  });
   return (
     <div>
       {work && <ProjectTitle
@@ -79,8 +83,39 @@ export default function Works() {
           <div className='item-33'>
             <h3>{t('summary')}</h3>
           </div>
-          <div className='item-66'>
-            <p>{t(work ? work.summary : '')}</p>
+          <div className='item-66 summarySection'>
+            <p >
+              {/* {t(work ? work.summary : '')} */}
+
+              <Trans
+                i18nKey={work ? work.summary : ''}
+                components={{
+                  pokeApi: <a href="https://pokeapi.co/" target="_blank" rel="noopener noreferrer" />,
+                  pokeOfficial: <a href="https://www.pokemon.com" target="_blank" rel="noopener noreferrer" />,
+                  gamehooks1: <a href="https://www.reddit.com/r/DnD/comments/9adid0/50_adventure_hooks_to_steal_for_your_game/" target="_blank" rel="noopener noreferrer" />,
+                  gamehooks2: <a href="https://www.reddit.com/r/rpg/comments/7nmpm3/100_side_quest_hooks/" target="_blank" rel="noopener noreferrer" />,
+                  lootGenerator: <a href="https://dungeonmastertools.github.io/" target="_blank" rel="noopener noreferrer" />,
+                  reactLeaflet: <a href="https://react-leaflet.js.org/" target="_blank" rel="noopener noreferrer" />,
+                  myMaps: <a href="https://www.google.com/intl/pt-BR/maps/about/mymaps/" target="_blank" rel="noopener noreferrer" />,
+                  einGit: <a href="https://github.com/eduardo-nakamura/" target="_blank" rel="noopener noreferrer" />,
+                  hsGit: <a href="https://github.com/hugosakai/" target="_blank" rel="noopener noreferrer" />,
+                  hmGit: <a href="https://github.com/Humbertomeale" target="_blank" rel="noopener noreferrer" />,
+                  creativeCommons: <a href="https://creativecommons.org/" target="_blank" rel="noopener noreferrer" />,
+                  zapSplat: <a href="https://www.zapsplat.com/" target="_blank" rel="noopener noreferrer" />,
+                  syntyStudios: <a href="https://www.syntystudios.com/" target="_blank" rel="noopener noreferrer" />,
+                  kenneyGameAssets: <a href="https://kenney.itch.io/kenney-game-assets" target="_blank" rel="noopener noreferrer" />,
+                  sdHiryuu: <a href="https://www.video-games-museum.com/en/game/SD-Hiryu-no-Ken-Gaiden-2/17/5/1647" target="_blank" rel="noopener noreferrer" />,
+                  kunioKun: <a href="https://www.mobygames.com/game/7645/river-city-ransom/screenshots/" target="_blank" rel="noopener noreferrer" />,
+                  corgiEngine: <a href="https://corgi-engine.moremountains.com/" target="_blank" rel="noopener noreferrer" />,
+                  actionCity: <a href="https://anokolisa.itch.io/action" target="_blank" rel="noopener noreferrer" />,
+                  ansimuz: <a href="https://ansimuz.itch.io/" target="_blank" rel="noopener noreferrer" />,
+                  mattWalkden: <a href="https://mattwalkden.itch.io" target="_blank" rel="noopener noreferrer" />,
+                  whirlwind: <a href="https://opengameart.org/users/spring-spring" target="_blank" rel="noopener noreferrer" />,
+                  fireball: <a href="https://opengameart.org/users/prushik" target="_blank" rel="noopener noreferrer" />,
+                  battleVFX: <a href="https://pimen.itch.io/" target="_blank" rel="noopener noreferrer" />,
+                }}
+              />
+            </p>
           </div>
         </div>
         :
@@ -95,7 +130,10 @@ export default function Works() {
       {work && work.video ?
         <div className="containerSection" style={{ flexDirection: 'column' }}>
           <h3>Video</h3>
-          <iframe style={{ margin: '0 auto', border: 'none' }} width="560" height="315" src={`http://www.youtube.com/embed/${work.video}?loop=1&autoplay=1&mute=1&playlist=${work.video}&controls=0&modestbranding=1`} allowFullScreen />
+          <div className="containerVideo">
+            <iframe style={{ margin: '0 auto', border: 'none' }} src={`http://www.youtube.com/embed/${work.video}?loop=1&autoplay=1&mute=1&playlist=${work.video}&controls=0&modestbranding=1`} allowFullScreen />
+          </div>
+
         </div> : ''}
 
       <div className="containerSection" style={{ flexDirection: 'column' }}>

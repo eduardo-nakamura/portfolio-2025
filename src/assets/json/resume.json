@@ -8,8 +8,8 @@
         "tags": [
             "react",
             "html",
-            "css",
-            "typescript"
+            "scss",
+            "javascript"
         ]
     },
     {
@@ -21,7 +21,8 @@
         "tags": [
             "angular",
             "html",
-            "css"
+            "scss",
+            "typescript"
         ]
     },
     {
@@ -32,6 +33,7 @@
         "cover": "cover-vet",
         "tags": [
             "react",
+            "next",
             "html",
             "css"
         ]
@@ -55,7 +57,8 @@
       "cover": "cover-puzzle",
     "tags": [
       "unity",
-      "c#"
+      "c#",
+      "AI"
     ]
   },
   {

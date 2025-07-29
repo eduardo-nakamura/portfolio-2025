@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
 import './App.css';
 import Home from './pages/Home';
@@ -40,7 +40,7 @@ function AppContent() {
   const movedX = -30;
 // base: process.env.NODE_ENV === 'production' ? `/${repositoryName}/` : '/',
   return (
-    <Router basename={process.env.NODE_ENV === 'production' ? '/portfolio-2025' : '/'}>
+    <Router>
 
       <div style={{ minHeight: '90vh' }} className={`fonts__${count} ${darkMode ? 'darkmode' : ''}`}>
         <Header />

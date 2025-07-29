@@ -40,15 +40,18 @@ export default function WorksList() {
   const [selectedOptions, setSelectedOptions] = useState<string[]>(['']);
 
   const options: Option[] = [
-    { label: 'All', value: '' },
-    { label: 'React', value: 'react' },
-    { label: 'Angular', value: 'angular' },
-    { label: 'Html', value: 'html' },
-    { label: 'CSS', value: 'css' },
-    { label: 'Typescript', value: 'typescript' },
-    { label: 'Javascript', value: 'javascript' },
-    { label: 'Unity', value: 'unity' },
-    { label: 'C#', value: 'c#' },
+    { label: 'all', value: '' },
+    { label: 'react', value: 'react' },
+    { label: 'angular', value: 'angular' },
+    { label: 'html', value: 'html' },
+    { label: 'css', value: 'css' },
+    { label: 'scss', value: 'scss' },
+    { label: 'typescript', value: 'typescript' },
+    { label: 'javascript', value: 'javascript' },
+    { label: 'unity', value: 'unity' },
+    { label: 'csharp', value: 'c#' },
+    { label: 'nextjs', value: 'next' },
+    { label: 'ai', value: 'AI' },
   ];
 
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -112,7 +115,7 @@ export default function WorksList() {
                   checked={selectedOptions.includes(item.value)} // Correctly binds checked state to selectedOptions array
                   onChange={handleCheckboxChange}
                 />
-                <label htmlFor={item.value}>{item.label}</label>
+                <label htmlFor={item.value}>{t(item.label)}</label>
               </li>
             ))}
           </ul>
@@ -120,10 +123,10 @@ export default function WorksList() {
           <ul className="containerGallery">
             {filteredResumee.map((item) => (
               <li key={item.id}>
-                <Link to={item.rota} rel="noopener noreferrer">
+                <Link to={item.rota} >
                   <div className="containerGallery__box">
                     <motion.div
-                      initial={{ opacity: 0.6, scale: 0.95 }}
+                      initial={{ opacity: 0.9, scale: 0.95 }}
                       transition={{ duration: 0.3 }}
                       whileHover={{ opacity: 1, scale: 1 }}
                     >
