@@ -113,6 +113,7 @@ export default function Works() {
                   whirlwind: <a href="https://opengameart.org/users/spring-spring" target="_blank" rel="noopener noreferrer" />,
                   fireball: <a href="https://opengameart.org/users/prushik" target="_blank" rel="noopener noreferrer" />,
                   battleVFX: <a href="https://pimen.itch.io/" target="_blank" rel="noopener noreferrer" />,
+                  gameJam: <a href="https://itch.io/jam/level-up-rpg-jam" target="_blank" rel="noopener noreferrer" />
                 }}
               />
             </p>
